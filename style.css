@@ -888,6 +888,35 @@ ul { list-style: none; }
 }
 
 /* =========================================================================
+   NEW CARD BADGE — sprinkle on recently added cards via JS data-new attr
+   ========================================================================= */
+
+.card[data-new="true"] .card-thumb-wrap::after {
+  content: 'NEW';
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  padding: 2px 8px;
+  background: var(--color-amber);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Non-parametric section — teal accent override for eyebrow + border */
+#nonparametric .section-eyebrow {
+  color: #3BBFA0;
+}
+
+#nonparametric .section-eyebrow::before {
+  background: #3BBFA0;
+}
+
+/* =========================================================================
    RESPONSIVE OVERRIDES
    ========================================================================= */
 

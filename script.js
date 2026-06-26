@@ -85,6 +85,13 @@ const SECTIONS = [
         alt: 'Flowchart of the standard six-step hypothesis testing procedure'
       },
       {
+        index: '19',
+        title: 'The p-Value',
+        file: '19_the_p_value.jpeg',
+        alt: 'Explanation of p-value: definition, interpretation, and relationship to significance level',
+        isNew: true
+      },
+      {
         index: '06',
         title: 'One-Tailed vs Two-Tailed Tests',
         file: '06_one-tailed_vs_two_tailed_tests.jpeg',
@@ -148,10 +155,33 @@ const SECTIONS = [
         alt: 'One-way ANOVA assumptions, F-ratio, and decision table'
       },
       {
+        index: '18',
+        title: 'One-Way ANOVA — Worked Example',
+        file: '18_one_way_anova_eg.jpeg',
+        alt: 'One-way ANOVA solved numerical example with F-statistic calculation',
+        isNew: true
+      },
+      {
         index: '10',
         title: 'Repeated Measures ANOVA',
         file: '10_repeated_measure_anova.jpeg',
         alt: 'Repeated measures ANOVA design and within-subjects F-ratio'
+      }
+    ]
+  },
+
+  {
+    id: 'nonparametric',
+    label: 'Chapter 05',
+    title: 'Non-Parametric Tests',
+    description: 'Tests for categorical data and goodness of fit — no normality assumption required.',
+    cards: [
+      {
+        index: '17',
+        title: 'Chi-Square (χ²) Test',
+        file: '17_chi_square_test.jpeg',
+        alt: 'Chi-square test: formula, assumptions, solved independence example, decision rule, and types',
+        isNew: true
       }
     ]
   }
@@ -197,6 +227,7 @@ function buildCard(card, sectionIdx, cardIdx) {
   const article = document.createElement('article');
   article.className = 'card';
   article.setAttribute('aria-labelledby', `${uniqueId}-title`);
+  if (card.isNew) article.setAttribute('data-new', 'true');
 
   article.innerHTML = `
     <div
@@ -533,7 +564,7 @@ function renderResourcesBanner() {
           <div class="repo-card-body">
             <span class="repo-card-role">Offline Study</span>
             <span class="repo-card-name">Download All Notes</span>
-            <span class="repo-card-handle">17 JPEG images</span>
+            <span class="repo-card-handle">20 JPEG images</span>
             <span class="repo-card-url">${escapeHtml(REPO.zipFile)}</span>
           </div>
         </a>
