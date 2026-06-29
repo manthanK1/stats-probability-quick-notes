@@ -8,8 +8,8 @@
 
   <title>Statistics &amp; Probability — Quick Revision Notes</title>
 
-  <!-- No external dependencies. All styles in style.css, all logic in script.js -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="calculator.css" />
 </head>
 
 <body>
@@ -35,6 +35,7 @@
         <a href="#hypothesis">Hypothesis Testing</a>
         <a href="#anova">ANOVA</a>
         <a href="#nonparametric">Non-Parametric</a>
+        <a href="#calculator">Calculator</a>
         <a href="https://github.com/manthanK1/stats-probability-quick-notes" target="_blank" rel="noopener noreferrer" class="nav-gh">
           <!-- GitHub mark SVG — inline, no CDN -->
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
@@ -56,7 +57,6 @@
        HERO
        ===================================================================== -->
   <section class="hero" aria-labelledby="hero-heading">
-    <!-- Grid-paper texture is pure CSS in style.css — the signature element -->
     <div class="hero-grid-bg" aria-hidden="true"></div>
 
     <div class="hero-content constrain">
@@ -86,7 +86,6 @@
         <div class="hero-meta-divider" aria-hidden="true"></div>
         <div class="hero-meta-item">
           <span class="meta-label">Topics</span>
-          <!-- Populated by JS -->
           <span class="meta-value" id="topic-count">—</span>
         </div>
       </div>
@@ -98,13 +97,14 @@
           download
           class="hero-cta hero-cta--secondary"
           aria-label="Download all notes as ZIP"
-        >↓ Download All</a>
+        >↓ Download ZIP</a>
+        <a href="#calculator" class="hero-cta hero-cta--ghost">⊞ Calculator</a>
         <a
           href="https://github.com/manthanK1/stats-probability-quick-notes"
           target="_blank"
           rel="noopener noreferrer"
           class="hero-cta hero-cta--ghost"
-        ><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align:-1px;margin-right:5px"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub</a>
+        ><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align:-1px;margin-right:5px"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
       </div>
     </div>
   </section>
@@ -114,8 +114,9 @@
        ===================================================================== -->
   <main id="main-content">
 
-    <!-- Cards are injected here by script.js.
-         Each section element gets id, aria-labelledby, and the card grid. -->
+    <!-- Search bar is injected above this by script.js -->
+    <!-- Cards are injected here by script.js -->
+    <!-- Calculator section is injected before resources by calculator.js -->
     <div id="sections-container"></div>
 
   </main>
@@ -213,7 +214,20 @@
     </div>
   </footer>
 
-  <!-- script deferred so DOM is ready -->
+  <!--
+    Script loading order matters:
+      1. statistics.js  — pure math (no DOM)
+      2. formulaData.js — formula reference data
+      3. graphs.js      — graph placeholder module
+      4. script.js      — sections, search, lightbox, resources banner
+      5. calculator.js  — calculator section (depends on 1–3, inserts before resources)
+      6. pdf-generator.js — PDF export (loaded last, used on demand)
+  -->
+  <script src="statistics.js"></script>
+  <script src="formulaData.js"></script>
+  <script src="graphs.js"></script>
   <script src="script.js"></script>
+  <script src="calculator.js"></script>
+  <script src="pdf-generator.js"></script>
 </body>
 </html>
