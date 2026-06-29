@@ -53,6 +53,14 @@ const SECTIONS = [
         file: '16_boxplot.jpeg',
         alt: 'Anatomy of a box-and-whisker plot with IQR labelled',
         keywords: ['box plot', 'whisker', 'iqr', 'quartile', 'median', 'outlier']
+      },
+      {
+        index: '24',
+        title: 'Top 10 Statistics Topics',
+        file: '24_TOP_10_STATS_TOPIC.jpeg',
+        alt: 'Visual summary of the top 10 most important statistics topics for exam revision',
+        keywords: ['top 10', 'statistics', 'topics', 'overview', 'revision', 'summary', 'key concepts'],
+        isNew: true
       }
     ]
   },
@@ -219,6 +227,14 @@ const SECTIONS = [
         file: '10_repeated_measure_anova.jpeg',
         alt: 'Repeated measures ANOVA design and within-subjects F-ratio',
         keywords: ['repeated measures', 'anova', 'within subjects', 'longitudinal']
+      },
+      {
+        index: '23',
+        title: 'ANOVA Explained',
+        file: '23_ANOVA_explained.jpeg',
+        alt: 'Comprehensive visual explanation of ANOVA concepts, assumptions, and interpretation',
+        keywords: ['anova', 'explained', 'assumptions', 'f-ratio', 'between groups', 'within groups', 'variance'],
+        isNew: true
       }
     ]
   },
